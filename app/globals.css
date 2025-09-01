@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+/* Add perspective for 3D transforms */
+.perspective {
+  perspective: 1000px;
+}
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Gradient animation for timeline line */
+.timeline-line {
+  background: linear-gradient(to bottom, transparent 0%, #4a000f 50%, transparent 100%);
+  background-size: 100% 200%;
+  animation: gradientMove 3s linear infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+/* Schedule timeline styles */
+.schedule-timeline {
+  position: relative;
+}
+
+.schedule-timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 8px;
+  width: 2px;
+  background-color: #4a000f;
+}
+
+.schedule-item {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 20px;
+}
+
+.schedule-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #4a000f;
+}
+
+.schedule-item::after {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 23px;
+  width: 2px;
+  height: calc(100% + 20px);
+  background-color: #4a000f;
+}
+
+.schedule-item:last-child::after {
+  display: none;
+}
+
+/* Icon styles */
+.schedule-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: #4a000f;
+  border-radius: 50%;
+  color: white;
+}
